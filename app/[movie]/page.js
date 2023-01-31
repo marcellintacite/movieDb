@@ -26,10 +26,10 @@ export default async function page({ params }) {
         <title>{res.title}</title>
       </Head>
       <div>
-        <h1 className="text-2xl font-extrabold">{res.title}</h1>
-        <h2 className="text-lg">{res.release_date}</h2>
+        <h1 className="text-2xl font-extrabold ">{res.title}</h1>
+        <h2 className="text-lg mt-3">{res.release_date}</h2>
 
-        <h2 className="text-lg">Runtime: {res.runtime} minutes</h2>
+        <h2 className="text-lg ">Runtime: {res.runtime} minutes</h2>
         <h2 className="bg-green-600 inline-block px-4 py-1 my-2 rounded-md text-sm">
           {res.status}
         </h2>
