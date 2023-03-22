@@ -16,11 +16,14 @@ import e3 from "../src/e3.png";
 import { useInView } from "react-intersection-observer";
 
 import { useEffect } from "react";
+import { MoonLoader } from "react-spinners";
 
 export default function page() {
-  const boxVariant = {
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-    hidden: { opacity: 0, scale: 0 },
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Hey bro");
+    setLoading(true);
   };
 
   const box = {
@@ -201,7 +204,11 @@ export default function page() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
               voluptate.
             </p>
-            <form action="" className="sm:w-5/6">
+            <form
+              action=""
+              className="sm:w-5/6"
+              onSubmit={(e) => handleSubmit(e)}
+            >
               <div className="mt-5">
                 <label htmlFor="nom" className="text-white">
                   Votre nom complet
@@ -250,8 +257,9 @@ export default function page() {
                   className="w-full mt-1 h-12 rounded-md pl-2 outline-none bg-slate-600 text-slate-50"
                 />
               </div>
-              <button className="w-full h-12 mt-6 bg-gray-600 text-white font-semibold rounded">
-                Inscription
+              <button className="w-full h-12 mt-6 bg-gray-600 text-white font-semibold rounded flex items-center justify-center">
+                {!loading && "Inscription"}
+                {loading && <MoonLoader color="#fff" size={20} />}
               </button>
             </form>
           </div>
